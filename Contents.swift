@@ -164,3 +164,174 @@ myIntArr = []
 
 // or var myIntArr: [Int] = []
 // apply to sets and collections too
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Functions, conditional and looping
+// if / else
+// parentheses aren't required for condition
+// but can use for clarity
+// need { } even with one single line if
+// condition must be true or false value
+// type bool
+var total = 34
+if total > 10 {
+   print("under 10")
+} else {
+    print("over 10")
+}
+
+// if car == "Tesla"
+// if myInt != nil
+// if userIsLoggedIn
+// if bonusEnabled
+
+// == != > < >= <= && ||
+
+// switch
+var mem = "MB"
+
+switch mem {
+case "kB":
+    print("kilobyte")
+case "MB":
+    print("megabyte")
+case "GB":
+    print("gigabyte")
+case "TB":
+    print("terabyte")
+case "PB":
+    print("petabyte")
+case "EB":
+    print("exabyte")
+default:
+    print("Error not recognized mem")
+}
+
+// let us look at one thing
+// set of { } no ( )
+let volcanoExpIndx: Int // 0 - 8
+volcanoExpIndx = 3
+
+switch volcanoExpIndx {
+case 0:
+    print("Ehhh")
+case 1:
+    print("Gentle")
+    print("plume of 1 km")
+case 2:
+    print("Boom Expolosion!")
+case 3:
+    print("Catastrophic")
+case 4:
+    print("Cataclysmic")
+case 5:
+    print("Paroxysmic")
+case 6:
+    print("Colossal")
+case 7:
+    print("Super Colossal")
+case 8:
+    print("Mega Colossal")
+    print("End game")
+default:
+    print("Not a recognize")
+//    break
+}
+
+// in swift each case must contain executable code, no just comments, no fall through
+// no need break at every case
+// could do multiple cases on the same case with a comma
+// works well with strings and ints
+//switch level {
+//case 1, 2, 3:
+//    print("Beginner")
+//case 4, 5, 6, 7:
+//    print("Hard")
+//default:
+//    print("Incorrect Level")
+//}
+
+// or with num can do a range
+//switch level {
+//case 1...3:
+//    print("Beginner")
+//case 4...7:
+//    print("Hard")
+//default:
+//    print("Incorrect Level")
+//}
+// ... range op start and end and include both num on each side
+// must be exhaustive
+// executable code on each case
+// no auto fall through
+
+// loops, only 3 ways
+// condition has to be true or false
+// while
+//while items > 0 {
+//
+//}
+
+// similiar to the do while where the code is ran at least once
+//repeat {
+//
+//} while items > 0
+
+// for loop -> for in
+// for (int i = 0; i < 10; i++)
+// initialize, condition and afterthought
+// not work in swift
+//for item in items {
+//
+//}
+
+//let words = ["apple", "pen", "noise", "grey"]
+//for word in words {
+//    print(word)
+//}
+
+//for num in 0...10 {
+//    print(num)
+//}
+
+// range op ... include both sides, closed range op
+// ..< include the one on the left but one less than the right, half-open range op
+//1...3 1, 2, 3
+//1..<3 1, 2
+
+//the sequence always goes up from small to large, they don't go in reverse
+// goes step by step at a time
+// to go from multiple steps we would stride
+// strideto, not include end seq
+// stridethrough, include end seq
+//for num in stride(from: start, to: end, by: skip)
+
+//for num in stride(from: 1, to: 20, by: 5)
+
+// can go backwards
+//for num in stride(from: 100, to: 0, by: 10)
+
+
+// string interpolation, construct some text
+// other lang can use concatenation, works in swift
+// let fullName = first + " " + last
+// var colors = "red"
+// can use += to append
+// colors += "blue"
+// colors += "green"
+// anything that isn't a string must be parse into a string String()
+// interpolation: \()
+// let msg = "Now playing \(track) from \(artist) is \(duration / 60) \(duration % 60)s long"
+// convert stuff that isn't a string to a string
+// can do expressions, and with eval first then print
