@@ -335,3 +335,73 @@ default:
 // let msg = "Now playing \(track) from \(artist) is \(duration / 60) \(duration % 60)s long"
 // convert stuff that isn't a string to a string
 // can do expressions, and with eval first then print
+
+
+// function
+// () are required and these mean that there are no params or if there is they would be in the ()
+//func showMsg() {
+//    print("hello World")
+//}
+//
+//showMsg()
+
+// params need a type annotation
+// need a argument label of whats the param
+//func showMsg(num: Int, name: String) {
+//    print("hello World \(num)")
+//}
+//
+//showMsg(num: 2)
+// showMsg(num: 2, name: "bob")
+// function parameters are constants, and immutable by default
+// can't change params, let
+// can re assign it to a variable then can change it
+
+// funciton return types comes after the function name and after the parameters and type
+// return arrow then datatype
+//func basFunc() -> String {
+//    return "adsfaf"
+//}
+
+// type inference works everywhere
+// function without return values
+// void no return value
+//func myFunc() -> Void {
+//
+//}
+
+// function type (param type ) -> return type
+// void for explicit return nothing
+// function without return value, a function that takes no parameters and return nothing () ->
+// calling a function but ignores any returned value will gereate a warning in the complier
+//_ = calc()
+// _ it know this is calling a function but ignoring a value, we don't need it so we are explicitly ignoring it and warning goes away. intendtionaly ignore or suppress something
+
+
+//func showMsg(msg: String) {
+//    print("hello World \(msg)")
+//}
+//
+//showMsg(msg: "!!!")
+
+// there is a space under after _ so we don't need the param name
+// can do them for multiple params
+// but recommended for param labels
+//func showMsg(_ msg: String) {
+//    print("hello World \(msg)")
+//}
+//
+//showMsg("!!!")
+
+// can change the param name to be called something else
+// if there are two names then first is argument label then second is the parameter name
+//func showMsg(message msg: String, number num: Int) {
+//    print("hello World \(msg)")
+//}
+//
+//showMsg(message "!!!", number: 3)
+// name funcitons wiht a noun verb so
+// show(msg) is a better function name
+//type(of: String)
+// think about what the entire call would look and act like
+
