@@ -506,3 +506,199 @@ default:
 //second.year = 2000
 // first.summary()
 // no inheritance with struct, so can't inheirt from other struct
+
+//Dictionary, map, symbol table, associative array
+// has values but access by a unique key, no dup key but dup vals works
+// strongly typed, but two types not one, one type for keys, another for values
+// dictionary literal format
+//var compass = [
+//    "n": "north",
+//    "s": "south",
+//    "w": "west",
+//    "e": "east"
+//]
+// can grab values  but [ ] to look up a key
+//compass["n"] // what is returned is a optional string
+
+//if let result = compass["w"] {
+//    print(result)
+//} else {
+//    print("No match found")
+//}
+
+// add or change with the same [ ]
+//compass["sw"] = "south west"
+// if exist then it will change if not than it will add
+
+// remove by setting to nil, remove key value pair
+//compass["s"] = nil
+
+// if the type and value are for later then we can stub out
+//var ele: [String: String]
+//var emps: [Int: String]
+// unordered collection
+
+// iterate through the dictionary
+//for path in compass{
+//    print(path)
+//}
+// both key and value
+
+// print the key and value separate
+// this is a tuple
+//for (abr, path) in compass{
+//    print(abr)
+//    print(path)
+//}
+
+//Tuples group values together, several elements together
+// values in ()
+//(value1, value2)
+//
+//let camType = "Canon"
+//let photoMade = true
+//var shutterSpeed = 60
+//var iso = 640
+//var zoom = "2x"
+//
+//var basicTuple = (zoom, iso, camType)
+
+// can mix literal, constants and vars
+//var nextTuple = ("asdfas", photoMode, 2323, zoom)
+
+//func rand() -> (String, Int)
+// return(title, 02)
+
+// get into the tuple or decompose, we can use index val, think as array
+//rand.0
+
+//func rand() -> (title: String, amt: Int)
+// return(title, 02)
+
+//  grab by name
+//rand.amt
+
+// or do it on the let
+//let (title, amt) = rand
+// when we loop through a dictionary, we have a tuple of a compound item of the key and value
+
+
+
+
+//Closures
+// gen, sorrting, filtering, working with collections
+// area spec, animation, fetching data, callbacks, completion handler
+// task specific, working with user interface controls
+// it let us takes lines of code and group it together to use elsewhere in out program
+// function is a type of closure
+// has blocks of code but don't have a name or need one
+// {
+
+//}
+
+// write a function a block of code you intend to call
+// closure a block of code you intend to pass
+// call a function that takes a closure
+//myFunc({
+//    print("adsfasdf asdfasdf")
+//})
+
+// similar to blicks, lambdas function literals, and anonymous functions
+// of the the docs wants to also include the closure and it would list them out on how too
+// should show how to sort
+//if firstBook.readingAge <= secondBook.readingAge {
+//    return true
+//} else {
+//    return false
+//}
+
+//if need, helpl, start off with a function that does it
+//func comparTwoBooks(firstBook: Book, secondBook: Book) -> Bool {
+//    if firstBook.readingAge <= secondBook.readingAge {
+//        return true
+//    } else {
+//        return false
+//    }
+//}
+
+// since functions are a type of closure it can work
+//let ageSortedBooks = allBooks.sorted(by: comparTwoBooks)
+// in this case the function doesn't need to be called with ()
+ 
+// first step is to remove func and name of func
+// then move the params and return types to the curly
+// and a in, separate the function type to what we want to exec
+//{
+//    (firstBook: Book, secondBook: Book) -> Bool
+//    in
+//    if firstBook.readingAge <= secondBook.readingAge {
+//        return true
+//    } else {
+//        return false
+//    }
+//}
+// will getting a warning until its passed to the right area
+
+//let ageSortedBooks = allBooks.sorted(by: {
+//    (firstBook: Book, secondBook: Book) -> Bool
+//    in
+//    if firstBook.readingAge <= secondBook.readingAge {
+//        return true
+//    } else {
+//        return false
+//    }
+//})
+// pass it to the argument
+
+// can shorten even more
+// can remove the function type becuase it redundent
+//let ageSortedBooks = allBooks.sorted(by: {
+
+//    if firstBook.readingAge <= secondBook.readingAge {
+//        return true
+//    } else {
+//        return false
+//    }
+//})
+
+// by default the closure will already assign the param as $ index
+// generate implicit auto names for the params, goes by index base
+// uses type inference to know the type
+//let ageSortedBooks = allBooks.sorted(by: {
+//    if $0.readingAge <= $1.readingAge {
+//        return true
+//    } else {
+//        return false
+//    }
+//})
+
+// can do a trailing closure to have it on the outside since it is already expecting a closure
+//let ageSortedBooks = allBooks.sorted(by:) {
+//    if $0.readingAge <= $1.readingAge {
+//        return true
+//    } else {
+//        return false
+//    }
+//}
+
+//can also remove the (by: too)
+//let ageSortedBooks = allBooks.sorted {
+//    if $0.readingAge <= $1.readingAge {
+//        return true
+//    } else {
+//        return false
+//    }
+//}
+// can clean up more with a expression
+//let ageSortedBooks = allBooks.sorted { return $0.readingAge <= $1.readingAge }
+
+// and if the whole closure is all in one line then we can omit the return
+//let ageSortedBooks = allBooks.sorted { $0.readingAge <= $1.readingAge }
+
+//let nameSortedBooks = allBooks.sorted { $0.title <= $1.title }
+// watch out for casing for string so convert to upper or lower
+
+//let nameSortedBooks = allBooks.sorted { $0.title.uppercased() <= $1.title.uppercased() }
+
+// works for diff methods
+// let booksFor10 = allBooks.filter { $0.reading < 10}
