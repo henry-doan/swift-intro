@@ -405,3 +405,104 @@ default:
 //type(of: String)
 // think about what the entire call would look and act like
 
+
+
+
+
+// Enumerations, making our own types
+// making own datatype so captial first letter
+// enumeration case, not a conditional case
+// can do multiple cases or one line with commas
+//enum MediaType {
+//    case book
+//    case movie
+//    case music
+//    case game
+//}
+
+//enum MediaType {
+//    case book, movie, music, game
+//}
+
+// use like a datatype
+// var itemType: MediaType
+// itemType = MediaType.game
+// use the . op to chose the enum
+
+// short hand of enum with a var
+// itemType = .game
+
+// if use in a case we have exhausted all options and don't need a default
+
+//switch itemType {
+//case .movie:
+//
+//case .game:
+//
+//case .music:
+//
+//case .book:
+//}
+
+// if we add another enum, there is a error of thw switch no longer being exhaustive
+
+// raw values
+// can pair it up with a value of any datatype
+//enum BottleSz: String { // String, Int, Double ...
+//    case half = "23L"
+//    case small = "11L"
+//    case big = "110L"
+//}
+// can grab both values
+//var myBottle: Bottle = .small
+//print("Your \(myBottle) is  \(myBottle.rawValue)")
+
+// customizable values or Associated values
+
+//enum MediaType {
+//    case book(String)
+//    case movie(String)
+//    case music(Int)
+//    case game(String)
+//}
+//var firstItem: MediaType = .movie("Drama")
+
+//to get to them you can use the let, and can use them later
+//switch itemType {
+//case .movie(let genre):
+//
+//case .game(let title):
+//
+//case .music(let duration):
+//
+//case .book(let author):
+//}
+
+//Structures / Struct, all datatypes are structs here
+// give common data a struct and encapsulate
+// upper camelcase for the name
+// has properties
+// can add behavior
+//struct Movie {
+//    var title: String
+//    var director: String
+//    var year: Int
+    // method of the struct
+//    func summary() -> String {
+//        return "asdfasdf asdf asdf asdf"
+//    }
+//}
+
+// memberwise initializer of create something of this type, it has this props
+// fill out all the props now
+//var first = Movie(title: "Star Wars", director: "Lucas", year: 1980)
+// can make make variables of the type
+//var second = Movie(title: "Space Wars", director: "Lucas", year: 1990)
+
+// different instances of the types
+// access with . op
+// print(first.title)
+// print(second.title)
+//second.year = 2000
+// first.summary()
+// no inheritance with struct, so can't inheirt from other struct
