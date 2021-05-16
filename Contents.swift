@@ -702,3 +702,348 @@ default:
 
 // works for diff methods
 // let booksFor10 = allBooks.filter { $0.reading < 10}
+
+
+
+
+
+// Classes and objects
+// have to set teh var to initial values, like in the initalizer or default values
+//class Appliance {
+////    properties
+////    instance level prop of the class
+//    var model: String = ""
+//    var plug: String = ""
+//    var year: Int = 0
+//    var cap: Int?
+//
+//    // methods
+//    func details() -> String {
+////        self is the current instance, and opt but recom
+//        return "This is a \(self.model), \(self.year)"
+//    }
+//}
+//
+//// create instance of a class
+//// use . to access or change values
+//var kettle = Appliance()
+//kettle.model
+//kettle.model = "LG"
+
+//class Appliance {
+////    properties
+////    instance level prop of the class
+//    var model: String
+//    var plug: String
+//    var year: Int
+//    var cap: Int?
+//
+//    initializer, no need func, called when the class is claaed with ()
+//    init() {
+//      self.model = "base model"
+//      self.plug = "american"
+//      self.year = 2000
+//    }
+// have other initilizers with diff params
+//    init(cap: Int){
+//      self.model = "base model"
+//      self.plug = "american"
+//      self.year = 2000
+//      self.cap = cap
+//     }
+// deinitializer, only one
+//deinit {
+//    // clean up code
+//}
+//
+//    // methods
+//    func details() -> String {
+////        self is the current instance, and opt but recom
+//        return "This is a \(self.model), \(self.year)"
+//    }
+//}
+// can create different initstances with different para,s
+// then use . to access and change
+//swift uses ARC automatic Reference counting and manage our memory for us, arc handles if the item is our of scope or not in use it deallocate and free up the memory for it
+// no need to call the deinit it will be called anyways after it gets to the level
+
+
+//structs props, methods, init, protocols, subscripts, all datatypes are structs not classes
+
+// changing a class to a struct works
+// can be instance the same way
+// some diff
+// struct Appliance {
+//    // props
+//    var manu: String
+//    var model: String
+//}
+
+// create a new instance
+//var toaster = Appliance(manu: "me", model: "x2180")
+// creates a init for us called memberwise initializer
+// if we don't want this we create our own
+
+// class Appliance {
+//    // props
+//    var manu: String
+//    var model: String
+//}
+//var toaster = Appliance(manu: "me", model: "x2180")
+// we lose the memberwise initializer, and need to init
+// classes support inheritance
+// structs do not
+//structs and enums, value types, assign to a new var or constant, the value is copied, pass to a func then the value is copied, imutable, can't be def as a let
+//classes ref types, assign to a var or constant or pass to a func, not copied, ref is passed , change, mutable, can set them to constanst and ref them as so but can't reassign
+
+//we can check if the items are ref the same thing with the identity operator with only working in classes or objects of a class
+//
+//if first === second
+// instance for both classes and structs
+
+// inheritance
+// final class Appli { // would not allow overriding at all
+//class Appli {
+//    var make: String
+//    var model: String
+//
+//    init() {
+//        self.model = "default"
+//        self.make = "default"
+//    }
+//
+//    // would allow no override
+//    final func printDets() {
+//        print("Make: \(self.make) \n Model: \(self.model)")
+//    }
+//}
+
+// to inheirt it would be the new class with a : and the parent
+// type of relationship
+// toaster type of applicance
+// parent or child or superclass or subclass
+// not common
+//class Toaster: Appli {
+//    // new props
+//    // no init in super class so need one in sub class
+//    // could fix with default val or init in this class, but with the relationship, we would need to override the init
+//    // this will add on to the init not replacing it, and would go from sub to super
+//    // use keyword super to access super class
+//    var slices: Int
+//
+//    override init() {
+//        self.slices = 2
+//        super.init()
+//    }
+//
+//    // new methoding
+//    func toasting() {
+//        print("...bing!")
+//    }
+//}
+
+// can access anything from the superclass
+//var toast = Toaster()
+//toast.make = "adsff"
+//toast.model = "sdfasd"
+//toast.printDets()
+//toast.toasting()
+
+
+// Extensions allows us to use different props of esiting types without inheritance and no need to override in the class, works with classes, structs and enums, can add behavior to anything
+// add own own methods to the datatype
+// key work and then the name of the type we want to extend
+// then can add code blocks to do what we need
+//extension String {
+//    func removeSpace() -> String {
+//        let filteredChars = self.filter{ $0 != " " }
+//        return String(filteredChars)
+//    }
+//}
+// then can call it on the type after
+//print("adsfa afadsf af asd fasdf asf".removeSpace())
+
+// all props that are in classes, enum and structs are stored props, that store their own values for each instance
+// computed property that calc a value every time we ask for it
+// looks like a normal prop
+//class Player {
+//    // stored prop
+//    var name: String
+//    var lives: Int
+//    var killCount: Int
+//    var bonus: Int?
+//    var penality: Int?
+    
+    // computed props
+    // only work with var and not a constant
+//    var score: Int {
+        // read only with just get
+        // if its just a get then can remove the get block and have the return
+//        get {
+//            return(killCount * 1999) + bonus + (lives * 3000) - penality
+//        }
+//        set {
+//          print("\(newVal) score")
+//        }
+//    }
+//
+//    init(name: String) {
+//        self.name = name
+//        self.lives = 5
+//        self.killCount = 0
+//        self.bonus = 0
+//        self.penality = 0
+//    }
+//}
+//
+//let newPlayer = Player("bob")
+//newPlayer.name
+//newPlayer.score
+
+// but if we try to set it we need a set block
+
+
+// Protocols
+// swift is a protocol oriented programming language
+// a set of rules or code of behavior
+// a simple list. has a name, list of methods, names, params and return types, list of props, name, type get/set
+// help with gen purpose, creating collections, comparing instances, converting, sorting, debug,
+// or app specific, loading, saving data, spell checking and resizing uis
+// usually don't write your own but use some that are alreay exist
+// read docs, of what is required and how its used
+//protocol myProto {
+//    // what methods
+//
+//    // what props
+//}
+// can use on a class, struct or enum and add the name of the protocol
+// make sure you have all the requirements
+//class Player: CustomStringConvertible {
+//... var description: String = "test" // literal works
+// and have it be a extension
+// only can inherit one superclass
+// but can have multple protocols
+//class Player: Superclass, CustomStringConvertible, more proto {
+
+// making your own
+//protocol MyProto {
+//    // methods
+//    func showMessage()
+//
+//    // props
+//    // need a { }  to have get or set or both
+//    var name: String { get set}
+//}
+
+// adopt / conform, what part of the process you are focus on
+// now adopting it
+//struct myStr: MyProto {
+//    func showMessage() {
+//        print("now conforming")
+//    }
+//}
+
+//Error handling
+// dealing with recoverable errs
+// define it, what is it, connection, save or calc
+    // swift does not have a error type
+    // can built errors from any data type
+// we can use the error protocol and don't need to do anything
+// mark this enum
+//enum ServerErr: Error {
+//    case noConnection
+//    case serverNotFound
+//    case authRefused
+//}
+
+// if a function might throw and error we need the throws proto
+// if a throw happend it like a return and wont do any mroe code
+//func checkStat(serverNum: Int) throws -> String {
+//    switch serverNum {
+//    case 1:
+//        print("No Connect")
+//        throw ServerErr.noConnection
+//    case 2:
+//        print("Auth failed")
+//        throw ServerErr.authRefused
+//    case 4:
+//        print("Server 3 running")
+//    default:
+//        print("No server with that")
+//        throw ServerErr.serverNotFound
+//
+//    }
+//    return "Success!"
+//}
+// handle it
+// call the function doesn't work normally now
+//do {
+//    try checkStat(serverNum: <#T##Int#>)
+//} catch err {
+//    print(err)
+//}
+// put try infront of the method call
+// the catch already has the error param def
+// but can have different catch blocks for different kinds of errors
+// good practice of doing all catch and have a gen one
+//do {
+//    let result = try checkStat(serverNum: 1)
+//
+//} catch ServerErr.authRefused {
+//    print("need a login")
+//}
+//catch {
+//    print("The problem \(error)")
+//}
+
+//let result: String ?
+//do {
+//    result = try checkStat(serverNum: 2)
+//} catch {
+//    result = nil
+//}
+// this would be a better alt
+//let result = try? checkStat(serverNum: 2)
+
+// throw it, where and when can it happen
+// handle it, what are you going to do about it
+
+//Guard and defer
+//guard is like is else
+//guard itemsReq < stock else {
+//    print("no can do")
+////    return
+//}
+// good use for if ther are a lot of options in a if or a if let and if let in embbeded than its the pyramid of doom
+// what we hope if true and if its not than we exit really quick
+// check boolean conditional
+// must have a else
+// if its true than it would move on
+// or it wikll do the else
+// else must have a hard exit
+// like a return, throw, break, continue
+//guard some-condition-is-need-to-be-true else {
+//    what-we-do-when-it-isn't
+//}
+// optional binding with guard
+//guard let unwrappedName = optName else {
+//    return
+//}
+//then optName has a value
+// if there is multiple than can be with commas
+
+//guard let unwrappedName = optName,
+//    let unwrappedAmt = optAmt
+//    else {
+//    return
+//}
+
+// defer
+// clean up resources
+// will run onces the resource is done or exit at end
+//defer {
+//
+//}
+//defer {
+//    cart.close
+//}
